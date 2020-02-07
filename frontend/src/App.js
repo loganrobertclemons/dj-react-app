@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+import 'antd/dist/antd.css';
 import './App.css';
+
+import CustomLayout from './containers/Layout';
+import ArticleList from './containers/ArticleListView';
 
 function handleSubmit(event) {
   const text = document.querySelector('#char-input').value
 
   axios
-    .get(`/char_count?text=${text}`).then(({data}) => {
+    .get(`/char_count?text=${text}`).then(({ data }) => {
       document.querySelector('#char-count').textContent = `${data.count} characters!`
     })
     .catch(err => console.log(err))
@@ -15,15 +19,9 @@ function handleSubmit(event) {
 function App() {
   return (
     <div className="App">
-      <div>
-        <label htmlFor='char-input'>aint this some cool stuff</label>
-        <input id='char-input' type='text' />
-        <button onClick={handleSubmit}>have?</button>
-      </div>
-
-      <div>
-        <h3 id='char-count'></h3>
-      </div>
+      <CustomLayout>
+        <ArticleList />
+      </CustomLayout>
     </div>
   );
 }

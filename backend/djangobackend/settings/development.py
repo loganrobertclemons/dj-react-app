@@ -9,4 +9,4 @@ SECRET_KEY = '47(6^lv2h6lo*2cfr#v02021$8p(wvwgivq9+=3f3r5=hbsu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["backend"]
+ALLOWED_HOSTS = ['backend', 'localhost']
